@@ -11,13 +11,19 @@ public class Humain {
 		this.nom = nom; 
 		this.q_argent = q_argent;
 	}
-	private String getNom() {
+	public String getNom() {
 		return nom;
 	}
-	private String getBoisson_preferee() {
+	
+	protected void setQ_argent(int q_argent) {
+		this.q_argent = q_argent;
+	}
+	
+	
+	public String getBoisson_preferee() {
 		return boisson_preferee;
 	}
-	private int getQ_argent() {
+	public int getQ_argent() {
 		return q_argent;
 	}
 	
@@ -31,7 +37,7 @@ public class Humain {
 	 
 	 public void direBonjour() {
 		
-		parler("Bonjour ! Je m’appelle " + getNom() + " et j’aime boire du "+ getBoisson_preferee());
+		parler("Bonjour ! Je m'appelle " + getNom() + " et j'aime boire du "+ getBoisson_preferee());
 	}
 	 protected void parler(String phrase) {
 		 System.out.println("(" + getNom() + ") - " + phrase);
@@ -39,7 +45,7 @@ public class Humain {
 	}
 	 public void acheter(String produit, int prix) {
 		 if (prix > getQ_argent()) {
-			 System.out.println("Je n'ai plus que "+ getQ_argent() + " sous en poche. Je ne peux même pas m'offrir un" + produit + " a " + prix+ " sous");
+			 System.out.println("Je n'ai plus que "+ getQ_argent() + " sous en poche. Je ne peux mï¿½me pas m'offrir un" + produit + " a " + prix+ " sous");
 		 }
 		 else {
 			 System.out.println("j'ai "+ getQ_argent() + " sous en poche " + "Je vais pouvoir m'offrir "+ produit + " a " + prix+ " sous");
@@ -50,8 +56,8 @@ public class Humain {
 		 }
 		
 	}
-	private void boire() {
-		System.out.println("Mmmm, un bon verre de "+ getBoisson_preferee() + " GLOUPS !");
+	public void boire() {
+		System.out.println("(" + getNom() + ") - " + "Mmmm, un bon verre de "+ getBoisson_preferee() + " GLOUPS !");
 		
 	}
 }
