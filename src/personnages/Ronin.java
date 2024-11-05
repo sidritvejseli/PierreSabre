@@ -25,4 +25,20 @@ public class Ronin extends Humain {
 		beneficiaire.recevoir(super.getQ_argent()/10);
 		super.setQ_argent(super.getQ_argent() - super.getQ_argent()/10);
 	}
+	
+	
+	public void provoquer(Yakuza adverssaire) {
+		super.parler("Je t'ai retrouvé vermine, tu vas payer pour ce que tu as fait à ce pauvre marchand!");
+		if ( 2*getHonneur()>= adverssaire.getReputation()) {
+			super.parler("Je t’ai eu petit yakusa!");
+			super.setQ_argent(getQ_argent()+ adverssaire.getQ_argent());
+			adverssaire.setQ_argent(adverssaire.perdre());
+			setHonneur(getHonneur()+1);
+		}
+		else {
+			super.parler("J'ai perdu contre ce yakuza, mon honneur et ma bourse ont en pris un coup.");
+			adverssaire.gagner(super.getQ_argent());
+			super.setQ_argent(0);
+		}
+	}
 }

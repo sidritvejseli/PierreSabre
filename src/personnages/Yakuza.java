@@ -8,7 +8,7 @@ public class Yakuza extends Humain {
 		
 		super(nom, "whiskey", 30);
 		this.clan = clan;
-		this.reputation = 0;
+		this.reputation = 3;
 		
 			
 	}
@@ -37,6 +37,21 @@ public class Yakuza extends Humain {
 		super.parler("J'ai pique les "+ gain + " sous de "+ victime.getNom() + " ce qui me fait "+ super.q_argent
 				+ "dans ma poche. Hi! Hi!");
 		setReputation(getReputation()+1);
+		
+	}
+	
+	protected int perdre() {
+		this.reputation -=1;
+		super.parler("J'ai perdu mon duel et mes " + super.getQ_argent()
+		+ " sous, snif.. J'ai desnohore le clan de "+ getClan());
+		return 0;
+	}
+	
+	protected void gagner(int gain) {
+		this.reputation +=1;
+		super.setQ_argent(super.getQ_argent()+ gain);
+		super.parler("Ce ronin pensait vraiment battre " + super.getNom()
+		+ " du clan de "+ getClan() + "? Je l'ai dépouillé de ses "+ gain);
 		
 	}
 	

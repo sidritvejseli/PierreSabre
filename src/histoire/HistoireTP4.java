@@ -4,6 +4,8 @@ import personnages.Commercant;
 
 import personnages.Yakuza;
 
+import personnages.Ronin;
+
 public class HistoireTP4 {
 	public static void main(String[] args) {
 //		Humain Prof = new Humain("Prof", "kombucha", 54);
@@ -20,6 +22,14 @@ public class HistoireTP4 {
 		Yakuza yaku = new Yakuza("Warsong", "Yaku Le Noir");
 		yaku.direBonjour();
 		yaku.extorquer(Marco);
+		
+		Ronin roro = new Ronin("Roro");
+		
+		roro.direBonjour();
+		roro.donner(Marco);
+		
+		roro.provoquer(yaku);
+		
 		
 	}
 }
